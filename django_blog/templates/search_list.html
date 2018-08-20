@@ -1,0 +1,70 @@
+{% extends 'list.html' %}
+
+
+{% block title %}
+    搜索结果页
+{% endblock %}
+
+
+{% block list_title %}
+    搜索结果
+{% endblock %}
+
+
+{% block sentence %}
+
+{% endblock %}
+
+
+{% block hot %}
+
+{% endblock %}
+
+
+{% block search %}
+
+{% endblock %}
+
+
+
+{% block article %}
+
+
+    {% for post in post_list %}
+
+
+
+        <article class="excerpt excerpt-1"><a class="focus" href="{% url 'blogapp:show' post.id %}" title="{{ post.title }}"
+                                              target="_blank"><img
+                class="thumb" data-original="/{{ post.cover }}"
+                src="/{{ post.cover }}" alt="{{ post.title }}" style="display: inline;"></a>
+            <header><a class="cat" href="{% url 'blogapp:show' post.id %}" title="{{ post.title }}">{{ post.title }}<i></i></a>
+                <h2><a href="#" title="{{ post.title }}" target="_blank">{{ post.title }}</a></h2>
+            </header>
+            <p class="meta">
+                <time class="time"><i class="glyphicon glyphicon-time"></i> {{ post.pub_date }}</time>
+                <span class="views"><i class="glyphicon glyphicon-eye-open"></i> {{ post.views }}</span> <a
+                    class="comment"
+                    href="##comment"
+                    title="评论"
+                    target="_blank"><i
+                    class="glyphicon glyphicon-comment"></i> {{ post.comment_set.count }}</a></p>
+            <p class="note">
+
+                {{ post.content|truncatechars_html:100 }}
+
+
+            </p>
+        </article>
+
+
+
+    {% endfor %}
+
+
+
+
+
+
+
+{% endblock %}

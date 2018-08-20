@@ -1,0 +1,18 @@
+<div class="widget widget_hot">
+    <h3>最新评论文章</h3>
+
+    <ul>
+
+        {% for post in new_comment_list %}
+            <li><a title="{{ post.title }}" href="{% url 'blogapp:show' post.id %}"><span class="thumbnail">
+				<img class="thumb" data-original="/{{ post.cover }}"
+                     src="/{{ post.cover }}" alt="{{ post.title }}" style="display: block;">
+			</span><span class="text">{{ post.title }}</span><span class="muted"><i
+                    class="glyphicon glyphicon-time"></i>
+				{{ post.pub_date }}
+			</span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>{{ post.views }}</span></a></li>
+        {% endfor %}
+
+
+    </ul>
+</div>
